@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 1px;
-    font-family: "Hack", monospace;
+    font-family: monospace;
     box-sizing: border-box;
 }
 
@@ -39,12 +39,14 @@ html,body {
 
 .output {
     width: 80%;
-    height: 30%;
+    height: 25%;
+    margin-top: 2%;
 }
 
 .error {
     width: 20%;
-    height: 30%;
+    height: 25%;
+    margin-top: 2%;
 }
 
 input[type=button] {
@@ -67,4 +69,3 @@ textarea {
     width: 100%;
     height: 100%;
 }
-

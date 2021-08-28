@@ -5,6 +5,14 @@
     <title>Python code executor</title>
     <script type=text/javascript src="{{ url_for('static', filename='script.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script language="javascript" type="text/javascript" src="{{ url_for('static', filename='edit_area_full.js') }}"></script>
+    <script language="javascript" type="text/javascript">
+    editAreaLoader.init({
+	        id : "code"		// textarea id
+	        ,syntax: "python"			// syntax to be used
+	        ,start_highlight: true		// to display with highlight mode on start-up
+    });
+</script>
 </head>
 <body>
     <form id="panels" name="form" method="post">

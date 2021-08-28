@@ -1,4 +1,5 @@
 import configparser
+import os
 from subprocess import PIPE, Popen, TimeoutExpired
 
 from flask import Flask, json, render_template, request
@@ -6,15 +7,17 @@ from flask import Flask, json, render_template, request
 app = Flask(__name__)
 
 
-def get_injection(path: str) -> str:
-    with open(path, "r") as file:
+def get_injection(name) -> str:
+    with open(os.path.join(path, f"./config_directory/{name}"), 'r') as file:
         return file.read()
 
+path = os.path.dirname(os.path.abspath(__file__))
 
-injection = get_injection("./config_directory/injection.txt")
+
 
 config = configparser.ConfigParser()
-config.read("./config_directory/config.ini")
+config.read(os.path.join(path, './config_directory/config.ini'))
+injection = get_injection(config['server']['injection'])
 
 
 @app.route("/")
@@ -51,4 +54,4 @@ def compile() -> str:
 
 
 if __name__ == "__main__":
-    app.run(debug=False, host="127.0.0.1", port=8080)
+    app.run(debug=False, host="0.0.0.0", port=8000)
