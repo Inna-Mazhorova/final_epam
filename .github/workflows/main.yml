@@ -1,0 +1,12 @@
+name: Lint Code Base
+
+on: push
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    name: linter
+
+    steps:
+        - uses: actions/checkout@v2
+        - uses: docker://github/super-linter:v2.1.0

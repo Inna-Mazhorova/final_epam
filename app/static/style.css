@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 1px;
+    font-family: "Hack", monospace;
+    box-sizing: border-box;
+}
+
+html,body {
+    height: 100%;
+    width: 100%;
+    background-color: silver;
+}
+
+#panels {
+    height: 100%;
+    width: 100%;
+}
+
+#panels div {
+    float: left;
+    padding: 1px;
+}
+
+.code {
+    width: 80%;
+    height: 57%;
+}
+
+.stdin {
+    width: 20%;
+    height: 50.5%;
+}
+
+.control {
+    padding: 10px;
+    width: 20%;
+    height: 10%;
+}
+
+.output {
+    width: 80%;
+    height: 30%;
+}
+
+.error {
+    width: 20%;
+    height: 30%;
+}
+
+input[type=button] {
+    background-color: gray;
+    color: black;
+    padding: 18px 35px;
+    width: 100%;
+    height: 100%;
+    font-size:20px;
+}
+
+textarea {
+    background-color: white;
+    border: 1px solid #000;
+    color: rgb(25 14 9);
+    padding: 8px;
+    resize: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+    height: 100%;
+}
+

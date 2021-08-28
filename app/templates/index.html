@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python code executor</title>
+    <script type=text/javascript src="{{ url_for('static', filename='script.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <form id="panels" name="form" method="post">
+        <div class="code">
+            <h3 class="title">Code</h3>
+            <textarea spellcheck="false" id="code" name="input_code">
+print("This is an example of possible input code.")
+
+your_input = input()
+print(f'This a simple Python code executor, {your_input}!')
+
+for i in range(5, 0, -1):
+    print(i)
+
+print("And we start!")
+eval("5*5")
+
+</textarea>
+        </div>
+        <div class="stdin">
+            <h3 class="title">Input</h3>
+            <textarea spellcheck="false" id="input" name="input_stdin">Maya</textarea>
+        </div>
+        <div class="control">
+            <input type="button" value="Launch" onclick="launch()">
+        </div>
+        <div class="output">
+            <h3 class="title">Output</h3>
+            <textarea readonly spellcheck="false" id="output" style="white-space: pre-line"></textarea>
+        </div>
+        <div class="error">
+            <h3 class="title">Error</h3>
+            <textarea readonly spellcheck="false" id="error" style="white-space: pre-line"></textarea>
+        </div>
+    </form>
+</body>
+</html>
