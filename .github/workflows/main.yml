@@ -7,7 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     name: linter
     env:
-      FILTER_REGEX_EXCLUDE: .*app/static/.*
+      VALIDATE_JAVASCRIPT_ES: false
+      VALIDATE_JAVASCRIPT_STANDARD: false
+      VALIDATE_CSS: false
+
     steps:
         - uses: actions/checkout@v2
         - uses: docker://github/super-linter:v2.1.0
