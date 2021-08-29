@@ -8,16 +8,16 @@ app = Flask(__name__)
 
 
 def get_injection(name) -> str:
-    with open(os.path.join(path, f"./config_directory/{name}"), 'r') as file:
+    with open(os.path.join(path, f"./config_directory/{name}"), "r") as file:
         return file.read()
+
 
 path = os.path.dirname(os.path.abspath(__file__))
 
 
-
 config = configparser.ConfigParser()
-config.read(os.path.join(path, './config_directory/config.ini'))
-injection = get_injection(config['server']['injection'])
+config.read(os.path.join(path, "./config_directory/config.ini"))
+injection = get_injection(config["server"]["injection"])
 
 
 @app.route("/")
@@ -38,16 +38,24 @@ def compile() -> str:
         config["blocked"]["functions"],
     ]
 
-    process = Popen(args, stdin=PIPE, stdout=PIPE,
-                    stderr=PIPE, encoding=config['process']['encoding'])
+    process = Popen(
+        args,
+        stdin=PIPE,
+        stdout=PIPE,
+        stderr=PIPE,
+        encoding=config["process"]["encoding"],
+    )
 
     try:
-        stdout, stderr = process.communicate(stdin, timeout=float(config['process']['timeout']))
+        stdout, stderr = process.communicate(
+            stdin, timeout=float(config["process"]["timeout"])
+        )
     except TimeoutExpired:
         return json.dumps(
-            {"output": "The program takes too long to execute",
-             "error": str(config['process']['timeout'])
-             }
+            {
+                "output": "The program takes too long to execute",
+                "error": str(config["process"]["timeout"]),
+            }
         )
 
     return json.dumps({"output": str(stdout), "error": str(stderr)})
