@@ -2,7 +2,7 @@ import configparser
 import os
 from subprocess import PIPE, Popen, TimeoutExpired
 
-from flask import Flask, json, render_template, request
+from flask import Flask, json, redirect, render_template, request
 
 app = Flask(__name__)
 
@@ -32,9 +32,13 @@ def index():
 
 
 @app.route("/docs")
-def serve_sphinx_docs(path="documents.html"):
+def serve_sphinx_docs():
     r"""A function that insert sphinx documentation in /docs"""
-    return app.send_static_file(path)
+
+    return redirect(
+        "https://final-epam.readthedocs.io/en/latest/main_launch.html#main_launch.compile",
+        code=302,
+    )
 
 
 @app.route("/compile", methods=["POST"])
