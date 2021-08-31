@@ -41,6 +41,7 @@ def serve_sphinx_docs(path="documents.html"):
 @app.route("/compile", methods=["POST"])
 def compile() -> str:
     r"""A function that executes code input made by user.
+
     :return: JSON.
     """
     content = request.get_json()
