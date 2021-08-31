@@ -8,10 +8,11 @@ app = Flask(__name__)
 
 
 def get_injection(path_name) -> str:
-    r"""A function that opens file and reads it
+    r"""A function that opens file and reads it.
+
     :param path_name: name of  the file to open
     :type path_name: file
-    :return: string.
+    :return: string
     """
     with open(os.path.join(path, f"./config_directory/{path_name}"), "r") as file:
         return file.read()
@@ -33,11 +34,7 @@ def index():
 
 @app.route("/docs")
 def serve_sphinx_docs(path="documents.html"):
-    return app.send_static_file(path)
-
-
-@app.route("/docs/main")
-def serve_sphinx_docs_main(path="main_launch.html"):
+    r"""A function that insert sphinx documentation in /docs"""
     return app.send_static_file(path)
 
 
