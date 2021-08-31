@@ -7,8 +7,13 @@ from flask import Flask, json, render_template, request
 app = Flask(__name__)
 
 
-def get_injection(name) -> str:
-    with open(os.path.join(path, f"./config_directory/{name}"), "r") as file:
+def get_injection(path_name) -> str:
+    r"""A function that opens file and reads it
+    :param path_name: name of  the file to open
+    :type path_name: file
+    :return: string.
+    """
+    with open(os.path.join(path, f"./config_directory/{path_name}"), "r") as file:
         return file.read()
 
 
@@ -22,11 +27,25 @@ injection = get_injection(config["server"]["injection"])
 
 @app.route("/")
 def index():
+    r"""A function that places html-file in main root of the project."""
     return render_template("index.html")
+
+
+@app.route("/docs")
+def serve_sphinx_docs(path="documents.html"):
+    return app.send_static_file(path)
+
+
+@app.route("/docs/main")
+def serve_sphinx_docs_main(path="main_launch.html"):
+    return app.send_static_file(path)
 
 
 @app.route("/compile", methods=["POST"])
 def compile() -> str:
+    r"""A function that executes code input made by user.
+    :return: JSON.
+    """
     content = request.get_json()
     code = injection + "\n" + content["input_code"]
     stdin = content["input_stdin"]
