@@ -13,3 +13,9 @@ Default timeout for execution is 10 seconds.
 The program could be run:
 - in a docker container;
 - via cloning this repository
+
+Shinx documentation can be seen here:
+- https://final-epam.readthedocs.io/en/latest/main_launch.html#main_launch.compile
+or here
+- http://localhost:8000/docs  
+  
