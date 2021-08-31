@@ -10,6 +10,8 @@ After pressing the "Launch"-button code is executed and stdout and stderr fields
 For security reasons import of os module and executing of exac and eval functions are prohibited.
 Default timeout for execution is 10 seconds.
 
+External source [edit_area](https://www.cdolivet.com/editarea/) is used for Python-code highlighting.
+
 The program could be run:
 - in a docker container;
 - via cloning this repository
