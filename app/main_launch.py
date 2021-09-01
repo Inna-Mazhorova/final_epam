@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 def get_injection(path_name) -> str:
     r"""A function that opens file and reads it.
+
     :param path_name: name of  the file to open
     :type path_name: file
     :return: string
@@ -44,6 +45,7 @@ def serve_sphinx_docs():
 @app.route("/compile", methods=["POST"])
 def compile() -> str:
     r"""A function that executes code input made by user.
+
     :return: JSON.
     """
     content = request.get_json()
